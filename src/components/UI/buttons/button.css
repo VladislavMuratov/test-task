@@ -1,0 +1,25 @@
+.text {
+    font-size: 14px;
+    color: #EA0029;
+    border: none;
+    padding: 0.5rem 1rem;
+    background: none;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.text:hover {
+    color: #F53A31;
+}
+
+.big1 {}
+
+.big2 {}
+
+.small1 {}
+
+.small2 {}
+
+.tags {}
+
+.input {}
