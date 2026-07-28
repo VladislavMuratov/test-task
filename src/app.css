@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main-page {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FF5E56;
+}
+
+.grey-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}

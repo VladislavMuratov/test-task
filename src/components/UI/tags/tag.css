@@ -1,18 +1,14 @@
 .tag {
-    width: 158px;
-    height: 36px;
     background: #EEF0F2;
     border-radius: 50px;
     font-family: sans-serif;
     font-size: 14px;
     line-height: 24px;
     font-weight: 400;
-    padding: 12px 24px;
+    padding: 12px 18px;
     color: black;
-}
-
-.tag>span {
-    color: grey;
+    margin: 0 0 0 10px;
+    cursor: pointer;
 }
 
 .tag.active {

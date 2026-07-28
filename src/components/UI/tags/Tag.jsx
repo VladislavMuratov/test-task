@@ -1,10 +1,11 @@
 import './tag.css'
 
-function Tag({ isActive, price, text }) {
+function Tag({ isActive, content, onClick }) {
     // const [tags, setTags] = useState([{ price: price, isActive: false }])
+    const className = `tag ${isActive ? 'active' : ''}`;
     return (
         <>
-            <span className={isActive}>{price}<span> {text}</span></span >
+            <span className={className} onClick={onClick}>{content}</span >
         </>
     )
 }

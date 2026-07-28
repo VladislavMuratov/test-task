@@ -1,0 +1,68 @@
+.modal {
+    position: relative;
+    background-color: white;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    max-width: 488px;
+}
+
+h1 {
+    font-family: sans-serif;
+    font-size: 28px;
+    margin: 10px 0;
+    line-height: 40px;
+    font-weight: 600;
+}
+
+
+.modal-desc {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #808080;
+    line-height: 24px;
+}
+
+.modal-desc>span {
+    display: block;
+}
+
+.modal-input {
+    padding: 1rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+
+    /* Reset button defaults */
+    background: transparent;
+    border: none;
+    padding: 0;
+
+    /* Size and alignment */
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Typography for the '×' sign */
+    font-size: 48px;
+    color: #EA0029;
+
+    /* UX Enhancements */
+    cursor: pointer;
+}
+
+.countOfMonth {
+    margin: 1rem 0;
+}
+
+.countOfMonth>span:first-child {
+    margin-right: 1rem;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+}
