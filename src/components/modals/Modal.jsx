@@ -1,10 +1,28 @@
 import Button from '/src/components/UI/buttons/Button';
 import Tag from '/src/components/UI/tags/Tag';
 import Input from '/src/components/UI/inputs/Input';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './modal.css';
 
 function Modal({ isActive, onClose }) {
+    const modalRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (modalRef.current && !modalRef.current.contains(e.target)) {
+                onClose();
+            }
+        };
+
+        if (isActive) {
+            document.addEventListener('mousedown', handleClickOutside);
+        };
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+    }, [isActive, onClose])
+
 
     const [selectedMonth, setSelectedMonth] = useState(12);
     const countOfMonth = [12, 24, 36, 48];
@@ -65,7 +83,7 @@ function Modal({ isActive, onClose }) {
     }
 
     return (
-        <div className={isActive ? 'modal' : 'modal-none'}>
+        <div className={isActive ? 'modal' : 'modal-none'} ref={modalRef}>
 
             <button className="close-btn" aria-label="Close modal" onClick={onClose}>&times;</button>
             <h1>Платежи по кредиту</h1>
