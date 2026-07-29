@@ -6,6 +6,10 @@
     max-width: 488px;
 }
 
+.modal-none {
+    display: none;
+}
+
 h1 {
     font-family: sans-serif;
     font-size: 28px;
@@ -65,4 +69,35 @@ h1 {
     font-size: 14px;
     font-weight: 600;
     line-height: 24px;
+}
+
+
+.frequency-payment {
+    margin: 2rem 0;
+}
+
+.frequency-payment>span:first-child {
+    display: block;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.calculate-value {
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+
+.calculate-true {
+    display: block;
+}
+
+.calculate-false {
+    display: none;
 }

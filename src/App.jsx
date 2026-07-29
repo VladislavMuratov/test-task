@@ -11,14 +11,19 @@ function App() {
 
   const changeBackground = () => {
     setCurrentBg('grey-page');
+    setModalIsActive(true);
+    setMainButton(false);
   }
 
+  const [modalIsActive, setModalIsActive] = useState(false);
+
+  const [mainButton, setMainButton] = useState(true);
 
   return (
     <div className={currentBg}>
-      {/* <Button text={`Расчет платежей`} typeOfButton={`big-button-background`} onClick={changeBackground} /> */}
+      <Button text={`Расчет платежей`} typeOfButton={mainButton ? 'big-button-background' : 'big-button-background-none'} onClick={changeBackground} />
 
-      <Modal />
+      <Modal isActive={modalIsActive} />
 
       {/* <Button text={`Рассчитать`} typeOfButton={`text-button`} onClick={qwe()} />
       <Button text={`Кнопка`} typeOfButton={`big-button`} />

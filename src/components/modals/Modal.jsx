@@ -4,13 +4,19 @@ import Input from '/src/components/UI/inputs/Input';
 import { useState } from 'react';
 import './modal.css';
 
-function Modal() {
+function Modal({ isActive }) {
 
     const [selectedMonth, setSelectedMonth] = useState(12);
     const countOfMonth = [12, 24, 36, 48];
 
+
     const changeMonth = (month) => {
         setSelectedMonth(month);
+    }
+
+
+    const changeFrequency = (freq) => {
+        setFrequencyPayment(freq);
     }
 
     const [inputValue, setInputValue] = useState('');
@@ -28,8 +34,38 @@ function Modal() {
 
     }
 
+
+    const [frequencyPayment, setFrequencyPayment] = useState('В месяц');
+    const countOfFrequency = ['В год', 'В месяц'];
+
+    const [calculateVisible, setCalculateVisible] = useState(false);
+
+    const [calculateValue, setCalculateValue] = useState();
+
+    const [inputRequired, setInputRequired] = useState(false);
+
+    const calculate = (inputValue, selectedMonth, frequencyPayment) => {
+        const numberInputValue = +inputValue.replace(/\s/g, '');
+
+        if (numberInputValue !== 0) {
+            setCalculateVisible(true);
+
+            let result;
+
+            if (frequencyPayment === 'В месяц') {
+                result = Math.round(numberInputValue / selectedMonth);
+            } else {
+                result = Math.round((numberInputValue / selectedMonth) * 12);
+            }
+
+            setCalculateValue(result.toLocaleString('ru-RU'));
+        } else {
+            setInputRequired(true);
+        }
+    }
+
     return (
-        <div className='modal'>
+        <div className={isActive ? 'modal' : 'modal-none'}>
 
             <button className="close-btn" aria-label="Close modal">&times;</button>
             <h1>Платежи по кредиту</h1>
@@ -41,8 +77,8 @@ function Modal() {
                     Мы автоматически рассчитаем для вас ежемесячный платеж, чтобы вы могли лучше спланировать свои финансы.
                 </span>
             </div>
-            <Input text={`Ваша сумма кредита`} placeholder={`Введите данные`} value={inputValue} onChange={correctInput} />
-            <Button text={`Рассчитать`} typeOfButton={`text-button`} />
+            <Input text={`Ваша сумма кредита`} placeholder={`Введите данные`} value={inputValue} onChange={correctInput} className={inputRequired ? 'input required' : 'input'} />
+            <Button text={`Рассчитать`} typeOfButton={`text-button`} onClick={() => calculate(inputValue, selectedMonth, frequencyPayment)} />
             <div className='countOfMonth'>
                 <span>
                     Количество месяцев?
@@ -52,7 +88,23 @@ function Modal() {
                 })}
             </div>
 
-            <Button text={`Добавить`} typeOfButton={`big-button`} />
+            <div className={calculateVisible ? 'calculate-true' : 'calculate-false'}>
+                <div className='frequency-payment'>
+                    <span>
+                        Итого ваш платеж по кредиту:
+                    </span>
+                    {countOfFrequency.map(freq => {
+                        return <Tag content={freq} key={freq} isActive={freq === frequencyPayment} onClick={() => changeFrequency(freq)} />
+                    })}
+                </div>
+
+                <span className='calculate-value'>{calculateValue}</span>
+
+
+                <Button text={`Добавить`} typeOfButton={`big-button`} />
+            </div>
+
+
 
 
 

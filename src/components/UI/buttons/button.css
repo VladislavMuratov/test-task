@@ -64,6 +64,10 @@
     cursor: pointer;
 }
 
+.big-button-background-none {
+    display: none;
+}
+
 .big-button-background:hover {
     background: white;
     color: black;
