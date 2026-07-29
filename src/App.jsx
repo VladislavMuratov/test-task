@@ -15,6 +15,12 @@ function App() {
     setMainButton(false);
   }
 
+  const closeModal = () => {
+    setModalIsActive(false);
+    setMainButton(true);
+    setCurrentBg('main-page');
+  }
+
   const [modalIsActive, setModalIsActive] = useState(false);
 
   const [mainButton, setMainButton] = useState(true);
@@ -23,7 +29,7 @@ function App() {
     <div className={currentBg}>
       <Button text={`Расчет платежей`} typeOfButton={mainButton ? 'big-button-background' : 'big-button-background-none'} onClick={changeBackground} />
 
-      <Modal isActive={modalIsActive} />
+      <Modal isActive={modalIsActive} onClose={closeModal} />
 
       {/* <Button text={`Рассчитать`} typeOfButton={`text-button`} onClick={qwe()} />
       <Button text={`Кнопка`} typeOfButton={`big-button`} />

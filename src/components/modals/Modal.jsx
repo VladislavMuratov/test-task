@@ -4,7 +4,7 @@ import Input from '/src/components/UI/inputs/Input';
 import { useState } from 'react';
 import './modal.css';
 
-function Modal({ isActive }) {
+function Modal({ isActive, onClose }) {
 
     const [selectedMonth, setSelectedMonth] = useState(12);
     const countOfMonth = [12, 24, 36, 48];
@@ -67,7 +67,7 @@ function Modal({ isActive }) {
     return (
         <div className={isActive ? 'modal' : 'modal-none'}>
 
-            <button className="close-btn" aria-label="Close modal">&times;</button>
+            <button className="close-btn" aria-label="Close modal" onClick={onClose}>&times;</button>
             <h1>Платежи по кредиту</h1>
             <div className='modal-desc'>
                 <span>
