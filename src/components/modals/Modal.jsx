@@ -66,6 +66,8 @@ function Modal({ isActive, onClose }) {
         const numberInputValue = +inputValue.replace(/\s/g, '');
 
         if (numberInputValue !== 0) {
+            setInputRequired(false);
+
             setCalculateVisible(true);
 
             let result;
